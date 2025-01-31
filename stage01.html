@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스테이지 1</title>
+    <link rel="stylesheet" href="/reset.css">
+    <link rel="stylesheet" href="/common.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap">
+    <script src="common.js"></script>
+</head>
+<body>
+    <div class="box1">
+        <p>스테이지 01</p>
+        <h1>느림의 미학</h1>
+    </div>
+    <div class="box2">
+        <p>도둑의 흔적을 따라 이동하던 중, 쪽지 하나를 발견할 수 있었다.</p>
+        <p>작은 종이에는 이렇게 쓰여 있다.</p>
+        <p id="prev" class="brush" style="margin-top: 30px;">"늘 기다림을 강요한다.<br> 
+            정작 나타나고 나면 헤어지기까지는 긴 시간이 걸린다.<br>
+            언제 올지 예측할 수 없고, 불쑥 나타나는가 하면 초조함이 쌓일수록 더욱 늦게 오곤 한다.<br>
+            한 때는 각자의 길을 가곤 했지만, 이제는 아니다."
+        </p>
+    </div>
+    <!-- 정답 입력 칸 -->
+    <div class="next_box">
+        <input type="text" id="answerInput" placeholder="정답을 입력하세요">
+        <button onclick="checkAnswer()">OK</button>
+        <p class="hint_box" id="hintMessage"></p>
+        <button id="nextButton" onclick="goToNextStage()">다음으로<img src="./images/arrow_up_ico.png"></button>
+    </div>
+    <div class="discover">🔑: 아직 찾은 열쇠가 없습니다.</div>
+    <script>
+        function checkAnswer() {
+            const answer = document.getElementById("answerInput").value.trim();
+            const nextButton = document.getElementById("nextButton");
+            const hintMessage = document.getElementById("hintMessage");
+
+            if (answer === "14") {
+                hintMessage.textContent = "쪽지 뒤에 붙어 있던 열쇠를 찾았습니다.";
+                hintMessage.style.color = "green";
+                nextButton.style.display = "block";
+                document.getElementById("prev").style.display = "none";
+            } else {
+                hintMessage.textContent = "HINT🎁: 하루 일과를 잘 떠올려보세요.";
+                hintMessage.style.color = "#b61d1d";
+                nextButton.style.display = "none";
+            }
+        }
+
+        function goToNextStage() {
+            window.location.href = "bus02.html";
+        }
+    </script>
+</body>
+</html>

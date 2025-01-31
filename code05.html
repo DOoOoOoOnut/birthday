@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스테이지 5</title>
+    <link rel="stylesheet" href="/reset.css">
+    <link rel="stylesheet" href="/common.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap">
+    <script src="common.js"></script>
+</head>
+<body>
+    <div class="box1">
+        <p>스테이지 05</p>
+        <h1>영원히 영원히</h1>
+    </div>
+    <div class="box2">
+        <p>의문을 뒤로하고 다시 업무에 집중하던 중, 메일 하나가 도착했습니다.</p>
+        <p>한 번도 들어본 적 없는 업체였지만, 당신은 우선 내용부터 확인하기로 했습니다.</p>
+        <p>첨부된 파일을 열자 짧은 코드 몇 줄이 적혀 있었습니다.</p>
+        <p>
+            <pre style="margin: 0; line-height: 1.6;" id="prev">
+                <code class="language-javascript" style="font-size: 15px; ">
+                    let 사랑 = 0;
+                    const 영원 = 1;
+                    
+                    while (영원) {
+                        console.log(사랑);
+                        사랑++;
+                    }
+
+                    // 영원 = ?
+                </code>
+            </pre>
+        </p>
+    </div>
+    <!-- 정답 입력 칸 -->
+    <div class="next_box">
+        <input type="text" style="margin-top: 20px;" id="answerInput" placeholder="정답을 입력하세요" >
+        <button onclick="checkAnswer()">OK</button>
+        <p class="hint_box" id="hintMessage"></p>
+        <button id="nextButton" onclick="goToNextStage()">다음으로<img src="./images/arrow_up_ico.png"></button>
+    </div>
+    <div class="discover">🔑: 14, 5, 4, 21</div>
+
+    <script>
+        function checkAnswer() {
+            const answer = document.getElementById("answerInput").value.trim();
+            const nextButton = document.getElementById("nextButton");
+            const hintMessage = document.getElementById("hintMessage");
+
+            if (answer === "1") {
+                hintMessage.textContent = "답을 입력하자, 아뿔싸! 컴퓨터가 그대로 꺼져 버렸습니다. 대체 아침부터 누가 이런 장난을 치는 걸까요?";
+                hintMessage.style.color = "green";
+                nextButton.style.display = "block";
+                document.getElementById("prev").style.display = "none";
+            } else {
+                hintMessage.textContent = "HINT🎁: INFINITY";
+                hintMessage.style.color = "#b61d1d";
+                nextButton.style.display = "none";
+            }
+        }
+
+        function goToNextStage() {
+            window.location.href = "loop06.html";
+        }
+    </script>
+</body>
+</html>

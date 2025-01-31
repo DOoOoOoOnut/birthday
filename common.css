@@ -1,0 +1,35 @@
+#nextButton {display: none;}
+
+body {
+    min-width: 360px;
+    padding: 135px 23px 50px;
+    background: url(images/back_01.webp) no-repeat center center;
+    background-size: auto 115%;
+    background-position: center center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    width: 100vw;
+    margin: 0;
+}
+h1, p {word-break: keep-all;}
+p, div {line-height: 1.8;}
+ol li {list-style:lower-roman; line-height: 1.8; font-size: 15px ; word-break: keep-all;}
+ol {padding-left: 20px; margin-top: 20px;}
+
+p {font-size: 15px;}
+h1 {font-size: 25px; font-weight: 700;}
+.box1 p {font-size: 14px; margin-bottom: 4px;}
+.box1 {margin-bottom: 20px;}
+
+#answerInput {padding: 5px 10px;
+    border-bottom: 1px solid #333;
+    width: max-content;
+    margin-top: 50px;}
+
+#hintMessage {margin-top: 12px; line-height: 1.6;}
+#nextButton {font-size: 20px; margin-top: 20px; }
+.discover {margin-top: 30px;}
+
+#answerInput::placeholder {color:#151515; font-weight: 400; }
+
+#nextButton img {transform: rotate(90deg); width: 20px; position: relative; top: 2px; left: 10px;}

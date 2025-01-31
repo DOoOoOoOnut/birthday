@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스테이지 4</title>
+    <link rel="stylesheet" href="/reset.css">
+    <link rel="stylesheet" href="/common.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap">
+    <script src="common.js"></script>
+</head>
+<body>
+    <div class="box1">
+        <p>스테이지 04</p>
+        <h1>익숙함 속에 숨겨진 비밀</h1>
+    </div>
+    <div class="box2">
+        <p>아무리 찾아도 도둑은 온데간데없이 사라지고 말았습니다.</p>
+        <p>당신은 하는 수 없이 다시 회사로 돌아왔습니다.</p>
+        <p>업무를 보려고 컴퓨터를 켜자, 모니터 화면에 다음과 같은 문자가 쓰여 있었습니다.</p>
+        <p id="prev"><img src="./images/code01.png" style="margin-top: 20px ; width: 100%;"></p>
+    </div>
+    <!-- 정답 입력 칸 -->
+    <div class="next_box">
+        <input type="text" id="answerInput" style="margin-top: 20px;" placeholder="정답을 입력하세요">
+        <button onclick="checkAnswer()">OK</button>
+        <p class="hint_box" id="hintMessage"></p>
+        <button id="nextButton" onclick="goToNextStage()">다음으로<img src="./images/arrow_up_ico.png"></button>
+    </div>
+    <div class="discover">🔑: 14, 5, 4</div>
+
+    <script>
+        function checkAnswer() {
+            const answer = document.getElementById("answerInput").value.trim();
+            const nextButton = document.getElementById("nextButton");
+            const hintMessage = document.getElementById("hintMessage");
+
+            if (answer === "21") {
+                hintMessage.textContent = "책상 옆에 열쇠 하나가 떨어져 있었습니다. 왜 열쇠가 이런 곳에 있지?";
+                hintMessage.style.color = "green";
+                nextButton.style.display = "block";
+                document.getElementById("prev").style.display = "none";
+            } else {
+                hintMessage.textContent = "HINT🎁: HTML";
+                hintMessage.style.color = "#b61d1d";
+                nextButton.style.display = "none";
+            }
+        }
+
+        function goToNextStage() {
+            window.location.href = "code05.html";
+        }
+    </script>
+</body>
+</html>

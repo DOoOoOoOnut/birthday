@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스테이지 3</title>
+    <link rel="stylesheet" href="/reset.css">
+    <link rel="stylesheet" href="/common.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap">
+    <script src="common.js"></script>
+</head>
+<body>
+    <div class="box1">
+        <p>스테이지 03</p>
+        <h1>기억 속의 첫 번째 좌표</h1>
+    </div>
+    <div class="box2">
+        <p>길을 가다 보니 어디선가 맛있는 냄새가 나기 시작했습니다.</p>
+        <p>아침도 못 먹고 사라진 선물을 쫒느라 당신은 무척이나 배가 고팠습니다.</p>
+        <p>냄새가 나는 곳을 찾아 주변을 둘러보니, 한 식당이 눈에 들어왔습니다.</p>
+        <p>메뉴판에는 이렇게 적혀 있었습니다.</p>
+        <p id="prev" class="brush" style="font-size: 32px; margin-top: 30px;">@37.4684354 / 126.6508443 <br>
+            선택했던 것은 무엇이었나?
+        </p>
+    </div>
+    <!-- 정답 입력 칸 -->
+    <div class="next_box">
+        <input type="text" id="answerInput" placeholder="정답을 입력하세요">
+        <button onclick="checkAnswer()">OK</button>
+        <p class="hint_box" id="hintMessage"></p>
+        <button id="nextButton" onclick="goToNextStage()">다음으로<img src="./images/arrow_up_ico.png"></button>
+    </div>
+
+    <div class="hint_box"><img src=""></div>
+    <div class="discover">🔑: 14, 5</div>
+
+    <script>
+        function checkAnswer() {
+            const answer = document.getElementById("answerInput").value.trim();
+            const nextButton = document.getElementById("nextButton");
+            const hintMessage = document.getElementById("hintMessage");
+
+            if (answer === "4") {
+                hintMessage.textContent = "식사를 마치자, 식당 주인은 영수증과 함께 열쇠를 내밀었습니다.";
+                hintMessage.style.color = "green";
+                nextButton.style.display = "block";
+                document.getElementById("prev").style.display = "none";
+            } else {
+                hintMessage.textContent = "HINT🎁: 후루룩 짭짭";
+                hintMessage.style.color = "#b61d1d";
+                nextButton.style.display = "none";
+            }
+        }
+
+        function goToNextStage() {
+            window.location.href = "dish04.html";
+        }
+    </script>
+</body>
+</html>

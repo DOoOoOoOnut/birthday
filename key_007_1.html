@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스테이지 7</title>
+    <link rel="stylesheet" href="/reset.css">
+    <link rel="stylesheet" href="/common.css">
+</head>
+<body>
+    <div class="box1">
+        <p>선물 교환권을 얻었습니다!</p>
+        <h1>성공!</h1>
+    </div>
+    <div class="box2">
+        <p>해냈습니다!</p>
+        <p>열쇠로 흡연실 문을 열고 들어가자, 빨간 쿠션 위에 선물 교환권이 놓여 있었습니다.</p>
+        <p>당신은 고생 끝에 드디어 생일 선물을 받을 수 있게 되었답니다.</p>
+        <p class="hidden_view">그런데 대체 누가 선물을 훔쳐갔던 걸까요? 🤔</p>
+    </div>
+    <!-- 정답 입력 칸 -->
+    <div class="next_box">
+        <input type="text" id="answerInput" placeholder="정답을 입력하세요">
+        <button onclick="checkAnswer()">OK</button>
+        <p class="hint_box" id="hintMessage"></p>
+        <button id="nextButton" onclick="goToNextStage()">당신이 뒤를 돌아보자..</button>
+    </div>
+
+    <div class="hint_box"><img src=""></div>
+    <div class="discover">🔑: 14, 5, 4, 21, 1</div>
+
+    <script>
+        function checkAnswer() {
+            const answer = document.getElementById("answerInput").value.trim();
+            const nextButton = document.getElementById("nextButton");
+            const hintMessage = document.getElementById("hintMessage");
+
+            if (answer === "daeun") {
+                hintMessage.textContent = "누군가가 흡연실 문을 열고 들어오는 소리가 들렸습니다.";
+                hintMessage.style.color = "green";
+                nextButton.style.display = "block"; // 정답 맞추면 버튼 보이게 함
+            } else {
+                hintMessage.textContent = "다시 시도해보세요😂";
+                hintMessage.style.color = "red";
+                nextButton.style.display = "none"; // 틀리면 버튼 숨김
+            }
+        }
+
+        function goToNextStage() {
+            window.location.href = "hidden0008.html"; // 다음 스테이지 페이지로 이동
+        }
+    </script>
+</body>
+</html>

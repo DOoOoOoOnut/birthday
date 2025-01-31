@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스테이지 6</title>
+    <link rel="stylesheet" href="/reset.css">
+    <link rel="stylesheet" href="/common.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap">
+    <script src="common.js"></script>
+</head>
+<body>
+    <div class="box1">
+        <p>스테이지 06</p>
+        <h1>운수 좋은 날</h1>
+    </div>
+    <div class="box2">
+        <p>생일 아침부터 되는 일이 하나도 없습니다.</p>
+        <p>선물은 도둑맞았고, 컴퓨터도 먹통이 되어 버렸습니다.</p>
+        <p>당신은 한숨을 쉬며 담배나 뻑뻑 피우려 흡연실로 향했지만, 문이 잠겨 있었습니다.</p>
+        <p>게다가 누군가 빨간 페인트로 낙서까지 휘갈겨 놓은 상태였습니다!</p>
+        <p id="prev" class="brush" style="color: #b51a1a; font-weight: 600; font-size: 40px; margin-top: 30px;">"이제 모든 조각을 하나로 합칠 시간이다."</p>
+    </div>
+    <!-- 정답 입력 칸 -->
+    <div class="next_box">
+        <input type="text" id="answerInput" placeholder="정답을 입력하세요">
+        <button onclick="checkAnswer()">OK</button>
+        <p class="hint_box" id="hintMessage"></p>
+        <button id="nextButton" onclick="goToNextStage()">다음으로<img src="./images/arrow_up_ico.png"></button>
+    </div>
+
+    <div class="hint_box"><img src=""></div>
+    <div class="discover">🔑: 14, 5, 4, 21, 1</div>
+
+    <script>
+        function checkAnswer() {
+            const answer = document.getElementById("answerInput").value.trim();
+            const nextButton = document.getElementById("nextButton");
+            const hintMessage = document.getElementById("hintMessage");
+
+            if (answer === "45") {
+                hintMessage.textContent = "열쇠를 모두 합치자, 다섯 개의 열쇠 조각은 하나의 커다란 열쇠가 되었습니다.";
+                hintMessage.style.color = "green";
+                nextButton.style.display = "block"; 
+                document.getElementById("prev").style.display = "none";
+            } else {
+                hintMessage.textContent = "HINT🎁: 지금까지 나온 열쇠 조각을 사용해 보세요.";
+                hintMessage.style.color = "#b61d1d";
+                nextButton.style.display = "none"; 
+            }
+        }
+
+        function goToNextStage() {
+            window.location.href = "key007.html";
+        }
+    </script>
+</body>
+</html>

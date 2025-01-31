@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>히든 스테이지</title>
+    <link rel="stylesheet" href="/reset.css">
+    <link rel="stylesheet" href="/common.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap">
+    <script src="common.js"></script>
+    <style>
+        .final {position: relative;}
+        .hidden_ment {position: absolute; left: 20px; bottom: 30px; color: aliceblue; font-size: 24px; font-style: italic;}
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <p>히든 스테이지</p>
+        <h1>범인의 정체</h1>
+    </div>
+    <div class="box2">
+        <p>범인은 선물을 준비한, 바로 그 사람이었답니다.</p>
+        <p>"사실 설날 연휴가 길어서 배송이 늦어져 버렸어."</p>
+        <p>생일 당일이 되었는데 배송이 오지 않자 당황한 범인은, 그만 자작극을 벌이고 말았던 거예요!</p>
+        <p>하지만 당신은 너그러운 마음으로 범인을 용서해 주기로 마음먹었답니다.</p>
+        <p>오늘은 즐거운 생일날이니까요!</p>
+        <p style="margin-top: 10px; color: green;">히든 스테이지 보상 - 손편지 교환권을 얻었습니다.</p>
+    </div>
+
+    <div class="final"><img class="hidden_view" src="./images/final.jpg" style="width: 100%; margin-top: 20px;"><p class="hidden_ment" style="opacity: 0;">모든 스테이지 클리어!!<br>생일 축하해~~~~~~~!!!!!!!</p></div>
+    <script>
+        document.querySelector(".hidden_view").addEventListener("click", function() {
+            document.querySelector(".hidden_ment").style.opacity = "1";
+        });
+    </script>
+</body>
+</html>

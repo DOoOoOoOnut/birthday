@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스테이지 2</title>
+    <link rel="stylesheet" href="/reset.css">
+    <link rel="stylesheet" href="/common.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap">
+    <script src="common.js"></script>
+</head>
+<body>
+    <div class="box1">
+        <p>스테이지 02</p>
+        <h1>빛이 만들어낸 해답</h1>
+    </div>
+    <div class="box2">
+        <p>버스를 타고 도둑의 흔적이 끊긴 곳에서 내리니, 하늘에는 곱게 무지개가 떠 있었다.</p>
+        <p>잘 살펴보니, 정류장 옆 칸막이에 전단지 하나가 붙어 있다.</p>
+        <p id="prev"><img src="./images/bus01.png" alt="" style="width: 100%; margin-top: 20px;"></p>
+    </div>
+    <!-- 정답 입력 칸 -->
+    <div class="next_box">
+        <input type="text" id="answerInput" placeholder="정답을 입력하세요">
+        <button onclick="checkAnswer()">OK</button>
+        <p class="hint_box" id="hintMessage"></p>
+        <button id="nextButton" onclick="goToNextStage()">다음으로<img src="./images/arrow_up_ico.png"></button>
+    </div>
+
+    <div class="discover">🔑: 14</div>
+
+    <script>
+        function checkAnswer() {
+            const answer = document.getElementById("answerInput").value.trim();
+            const nextButton = document.getElementById("nextButton");
+            const hintMessage = document.getElementById("hintMessage");
+
+            if (answer === "5") {
+                hintMessage.textContent = "정류장 의자 아래에 열쇠가 떨어져 있었습니다.";
+                hintMessage.style.color = "green";
+                nextButton.style.display = "block";
+                document.getElementById("prev").style.display = "none";
+            } else {
+                hintMessage.textContent = "HINT🎁: PHOTOSHOP";
+                hintMessage.style.color = "#b61d1d";
+                nextButton.style.display = "none"; 
+            }
+        }
+
+        function goToNextStage() {
+            window.location.href = "rainbow03.html"; 
+        }
+    </script>
+</body>
+</html>
